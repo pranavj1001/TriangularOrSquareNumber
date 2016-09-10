@@ -40,11 +40,14 @@ public class MainActivity extends AppCompatActivity {
 
                 //Get The Input
                 EditText input = (EditText) findViewById(R.id.getInput);
-                int inputNumber = Integer.parseInt(input.getText().toString());
                 Snackbar.make(view, "Added!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                display(view,inputNumber);
-            }
+                if(input.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please enter a number",Toast.LENGTH_SHORT).show();
+                }else{
+                    int inputNumber = Integer.parseInt(input.getText().toString());
+                    display(view,inputNumber);
+            }   }
         });
     }
 
